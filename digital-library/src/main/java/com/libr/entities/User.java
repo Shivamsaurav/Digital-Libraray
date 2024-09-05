@@ -1,4 +1,4 @@
-package com.mint.entities;
+package com.libr.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

@@ -1,4 +1,4 @@
-package com.mint.entities;
+package com.libr.entities;
 
 import java.time.LocalDate;
 
