@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.libr.dtos.BookDto;
 import com.libr.entities.Author;
+import com.libr.entities.Book;
 import com.libr.services.BookService;
 
 @RestController
@@ -19,5 +21,10 @@ public class BookController {
 	@PostMapping("/author")
 	public Author addNewAuthor(@RequestBody Author author) {
 		return bookService.addAuthor(author);
+	}
+	
+	@PostMapping
+	public Book addNewBook(@RequestBody BookDto bookDto) {
+		return bookService.addBook(bookDto);
 	}
 }

@@ -9,7 +9,7 @@ import com.libr.entities.Book;
 public interface BookService {
 
 	Author addAuthor(Author author);
-	Book addBook(BookDto book, int authorId);
+	Book addBook(BookDto bookDto);
 	List<Book> getAllBooks();
 	List<Book> searchByAuthor(int AuthorId);
 	List<Book> searchByGenre(String genre);

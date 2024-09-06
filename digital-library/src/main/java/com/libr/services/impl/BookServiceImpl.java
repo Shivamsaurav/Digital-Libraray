@@ -2,6 +2,7 @@ package com.libr.services.impl;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -28,9 +29,14 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public Book addBook(BookDto book, int authorId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Book addBook(BookDto bookDto) {
+		Author author = authorRepo.findById(bookDto.getAuthorId()).get();
+		Book book = new Book();
+		BeanUtils.copyProperties(bookDto, book);
+		book.setAuthor(author);
+		
+		bookRepo.save(book);
+		return book;
 	}
 
 	@Override
