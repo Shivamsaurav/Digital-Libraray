@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import com.libr.dtos.BookDto;
 import com.libr.entities.Author;
 import com.libr.entities.Book;
+import com.libr.entities.Genre;
 import com.libr.repositories.AuthorRepository;
 import com.libr.repositories.BookRepository;
 import com.libr.services.BookService;
@@ -52,9 +53,9 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public List<Book> searchByGenre(String genre) {
+	public List<Book> searchByGenre(Genre genre) {
 		// TODO Auto-generated method stub
-		return null;
+		return bookRepo.searchByGenre(genre);
 	}
 
 	@Override
