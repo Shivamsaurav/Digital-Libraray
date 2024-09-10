@@ -82,6 +82,7 @@ public class UserServiceImpl implements UserService{
 		transact.setReturnedDate(LocalDate.now());
 		transactionRepo.save(transact);
 		Book book = transact.getBook();
+		book.setStock(book.getStock()+1);
 		return book;
 	}
 
