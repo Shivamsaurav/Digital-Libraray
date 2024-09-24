@@ -1,6 +1,7 @@
 package com.libr.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,11 @@ public class BookServiceImpl implements BookService{
 
 	@Override
 	public Book addBook(BookDto bookDto) {
-		Author author = authorRepo.findById(bookDto.getAuthorId()).get();
+		//Author author = authorRepo.findById(bookDto.getAuthorId()).get();
+		Optional<Author> optionalAuth = authorRepo.findById(bookDto.getAuthorId());
+		
+		Author author = optionalAuth.orElseThrow(()->new RuntimeException("Invalid Author id."));
+		
 		Book book = new Book();
 		BeanUtils.copyProperties(bookDto, book);
 		book.setAuthor(author);

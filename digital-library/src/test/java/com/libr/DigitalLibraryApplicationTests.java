@@ -1,4 +1,4 @@
-package com.mint;
+package com.libr;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
